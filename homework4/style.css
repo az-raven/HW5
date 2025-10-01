@@ -1,0 +1,233 @@
+body, html {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+header {
+	grid-area: head;
+	background-color: slateblue;
+	color: white;
+	padding: 15px;
+	height: fit-content;
+	position: sticky;
+	top: 0px;
+	border-left: black 2px solid;
+}
+
+nav {
+	background-color: white;
+	grid-area: nav;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-content: center;
+	row-gap: 15px;
+	padding: 15px;
+}
+
+nav.large {
+	box-sizing: border-box;
+	height: 100vh;
+	position: sticky;
+	top: 0px;
+	bottom: 0px;
+}
+
+.nav-link {
+	background-color: slateblue;
+	box-shadow: black 1px 1px 1px 1px;
+	padding: 15px;
+	flex-grow: 1;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav-link > a {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+
+.content {
+	grid-area: content;
+	padding: 15px;
+	border-left: black 2px solid;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.content > * {
+	flex-shrink: 1;
+	flex-grow: 1;
+}
+
+.project-grid {
+	display: grid;
+	grid-template-columns: 25% 25% 50%;
+}
+
+footer {
+	position: sticky;
+	bottom: 0px;
+	background-color: black;
+	color: white;
+	padding: 15px;
+	grid-area: footer;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+footer h2 {
+	margin-bottom: 0px;
+}
+
+footer a {
+	color: white;
+}
+
+footer > * {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+#resume-button {
+	background-color: crimson;
+	transition: all ease 0.2s;
+}
+
+#resume-button:hover {
+	box-shadow: crimson 0px 0px 3px 3px;
+	transform: scale(105%);
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.project-description {
+	vertical-align: top;
+}
+
+.project {
+	position: relative;
+}
+
+.project-header {
+	grid-column-end: span 3;
+	border-bottom: 3px double black;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+h3 {
+	clear: both;
+}
+
+img {
+	transition: all ease 250ms;
+}
+
+img:hover {
+	transform: scale(110%);
+	box-shadow: black 0px 0px 8px 8px;
+	border: 2px solid white;
+}
+
+@media (max-width: 768px) {
+	nav.large {
+		display: none;
+	}
+
+	nav.small {
+		display: flex;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: 15% 85%;
+		grid-template-areas:
+			"head head"
+			"content content"
+			"footer footer";
+		min-height: 100vh;
+	}
+}
+
+@media (min-width: 768px) {
+	nav.small {
+		display: none;
+	}
+	nav.large {
+		display: flex;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: 15% 85%;
+		grid-template-areas:
+			"nav head"
+			"nav content"
+			"nav footer";
+		min-height: 100vh;
+	}
+
+	.summary-container {
+		width: 45%;
+		margin-right: calc(15px / 2);
+		align-self: flex-start;
+	}
+
+	.skills-container {
+		width: 45%;
+		margin-left: calc(15px / 2);
+		align-self: flex-end;
+	}
+}
+
+@media (max-width: 1300px) {
+	.large {
+		display: none;
+	}
+
+	img {
+		width: 95%;
+		grid-column-end: span 3;
+	}
+
+	.grid-container p {
+		grid-column-end: span 3;
+	}
+}
+
+@media (min-width: 1300px) {
+	.small {
+		display: none;
+	}
+
+	img {
+		max-width: 256px;
+	}
+}
